@@ -23,8 +23,9 @@ class CustomThemes {
   // );
 
   static final ThemeData darkTheme = ThemeData(
+    fontFamily: 'Nunito',
     useMaterial3: true,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: Color.fromARGB(255, 20, 20, 20),
     primarySwatch: Colors.blue,
     brightness: Brightness.dark,
     textTheme: TextTheme(
@@ -33,9 +34,19 @@ class CustomThemes {
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
-      bodyMedium: TextStyle(
-        fontSize: 18.sp,
+      labelMedium: TextStyle(
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold,
+        color: AppColors.whiteColor,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.normal,
+        color: AppColors.whiteColor,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.normal,
         color: AppColors.whiteColor,
       ),
     ),
