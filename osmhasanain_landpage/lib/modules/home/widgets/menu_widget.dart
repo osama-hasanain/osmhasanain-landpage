@@ -13,10 +13,9 @@ class MenuHomeWidget extends StatelessWidget {
   final HomeController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Expanded(
-          flex: 1,
-          child: Container(
+    return Expanded(
+        flex: 1,
+        child: Container(
             decoration: const BoxDecoration(
               color: AppColors.drawerColor,
             ),
@@ -27,13 +26,13 @@ class MenuHomeWidget extends StatelessWidget {
                   Expanded(
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          listItem('Home', IconsManager.iconHome,
+                          listItem('home'.tr, IconsManager.iconHome,
                               controller.menuIndex.value == 0, 0),
-                          listItem('Skills', IconsManager.iconSkills,
+                          listItem('skills'.tr, IconsManager.iconSkills,
                               controller.menuIndex.value == 1, 1),
-                          listItem('Work Gallery', IconsManager.iconList,
+                          listItem('work_gallery'.tr, IconsManager.iconList,
                               controller.menuIndex.value == 2, 2),
                           // const Spacer(),
                         ]),
@@ -43,15 +42,42 @@ class MenuHomeWidget extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: MenuData.socialMediaItems
-                          .map((item) => InkWell(
-                                onTap: () {
-                                  controller.lunchToLink(item['link']);
+                          .map((item) => MouseRegion(
+                                onEnter: (_) {
+                                  controller.changeSocialIconHover(true);
+                                  controller.socialHoverId = item['id'];
                                 },
-                                child: Tooltip(
-                                  message: item['title'],
-                                  child: SvgPicture.asset(
-                                    item['icon'],
-                                    height: 25.h,
+                                onExit: (_) {
+                                  controller.changeSocialIconHover(false);
+                                  controller.socialHoverId = 0;
+                                },
+                                child: GestureDetector(
+                                  onTap: () {
+                                    controller.lunchToLink(item['link']);
+                                  },
+                                  child: Tooltip(
+                                    message: item['title'],
+                                    child: GetBuilder<HomeController>(
+                                        builder: (context) {
+                                      return AnimatedContainer(
+                                        duration:
+                                            const Duration(milliseconds: 700),
+                                        curve: Curves.easeInOutBack,
+                                        height: item['id'] ==
+                                                controller.socialHoverId
+                                            ? controller.socialIconHeight
+                                            : controller
+                                                .socialIconHeightNotHover,
+                                        width: item['id'] ==
+                                                controller.socialHoverId
+                                            ? controller.socialIconHeight
+                                            : controller
+                                                .socialIconHeightNotHover,
+                                        child: SvgPicture.asset(
+                                          item['icon'],
+                                        ),
+                                      );
+                                    }),
                                   ),
                                 ),
                               ))
@@ -60,9 +86,7 @@ class MenuHomeWidget extends StatelessWidget {
                   )
                 ],
               ),
-            ),
-          )),
-    );
+            )));
   }
 
   listItem(String title, String icon, bool isSelected, int index) {

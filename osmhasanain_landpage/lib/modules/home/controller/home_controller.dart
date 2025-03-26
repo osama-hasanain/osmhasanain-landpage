@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/state_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -52,5 +53,45 @@ class HomeController extends GetxController {
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     }
+  }
+
+  late int socialHoverId = 0;
+  late bool isSocialIconHover = false;
+  changeSocialIconHover(bool value) {
+    isSocialIconHover = value;
+    setSocialIconHeight();
+  }
+
+  late double socialIconHeightHover = 40.h;
+  late double socialIconHeightNotHover = 25.h;
+  late double socialIconHeight = 25.h;
+
+  setSocialIconHeight() {
+    if (isSocialIconHover) {
+      socialIconHeight = socialIconHeightHover;
+    } else {
+      socialIconHeight = socialIconHeightNotHover;
+    }
+    update();
+  }
+
+  late int skillsHoverId = 0;
+  late bool isSkillsIconHover = false;
+  changeSkillsIconHover(bool value) {
+    isSkillsIconHover = value;
+    setSkillsIconHeight();
+  }
+
+  late double skillsIconHeightHover = 100.h;
+  late double skillsIconHeightNotHover = 70.h;
+  late double skillsIconHeight = 70.h;
+
+  setSkillsIconHeight() {
+    if (isSkillsIconHover) {
+      skillsIconHeight = skillsIconHeightHover;
+    } else {
+      skillsIconHeight = skillsIconHeightNotHover;
+    }
+    update();
   }
 }

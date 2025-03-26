@@ -82,6 +82,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: BalooBhaijaan
+      fonts:
+        - asset: assets/fonts/BalooBhaijaan2.ttf
     - family: Nunito
       fonts:
         - asset: assets/fonts/Nunito-Regular.ttf

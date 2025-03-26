@@ -11,6 +11,8 @@ class IconsManager {
       'assets/icons/svg/icons8-google-ads.svg';
   static const String whiteGooglePlaycon =
       'assets/icons/svg/icons8-google-play.svg';
+  static const String whiteAppStoreIcon =
+      'assets/icons/svg/icons8-app-store.svg';
   static const String iconHome = 'assets/icons/svg/icon-home.svg';
   static const String iconSkills = 'assets/icons/svg/icon-skills.svg';
   static const String iconList = 'assets/icons/svg/icon-list.svg';
@@ -19,6 +21,7 @@ class IconsManager {
   static const String iconsX = 'assets/icons/svg/icons8-x.svg';
   static const String iconsGmail = 'assets/icons/svg/icons8-gmail.svg';
   static const String iconsWhatsapp = 'assets/icons/svg/icons8-whatsapp.svg';
+  static const String iconsLanguage = 'assets/icons/svg/icons8-language.svg';
 
   static const String paragonParentLogo =
       'assets/icons/jpg/paragon-parent-logo.jpg';

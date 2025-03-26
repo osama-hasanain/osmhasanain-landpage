@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/instance_manager.dart';
+import 'package:get/get.dart';
 import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dart';
 import 'package:osmhasanain_landpage/modules/home/widgets/menu_widget.dart';
+import 'package:osmhasanain_landpage/shared/resources/assets_managers.dart';
 import 'package:osmhasanain_landpage/shared/resources/home_data.dart';
+import 'package:osmhasanain_landpage/shared/resources/localization_service.dart';
 import 'package:osmhasanain_landpage/shared/styles/colors.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -35,45 +37,109 @@ class MyHomePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         SizedBox(
-                          height: 130.h,
+                          height: 50.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Tooltip(
+                              message: 'change_language'.tr,
+                              child: GestureDetector(
+                                onTap: () {
+                                  LocalizationService.changeLocale(
+                                      Get.locale?.languageCode == 'en'
+                                          ? 'ar'
+                                          : 'en',
+                                      Get.locale?.languageCode == 'en'
+                                          ? 'EG'
+                                          : 'US');
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: AppColors.whiteColor,
+                                      borderRadius:
+                                          BorderRadius.circular(10.r)),
+                                  padding: EdgeInsets.all(5.w),
+                                  child: SvgPicture.asset(
+                                    IconsManager.iconsLanguage,
+                                    height: 30.h,
+                                    colorFilter: const ColorFilter.mode(
+                                        AppColors.blackColor, BlendMode.srcIn),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 100.h,
                         ),
                         Text(
-                          HomeData.jobTitle,
+                          'job_title'.tr,
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                         SizedBox(
                           height: 20.h,
                         ),
                         Text(
-                          HomeData.shortDesc,
+                          'short_desc'.tr,
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         SizedBox(
                           height: 100.h,
                         ),
                         Text(
-                          'Skills',
+                          'skills'.tr,
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                         SizedBox(
                           height: 25.h,
                         ),
                         SizedBox(
-                            height: 70.h,
+                            height: 100.h,
                             child: ListView.builder(
                               physics: const BouncingScrollPhysics(),
                               itemCount: HomeData.homeData.length,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (context, index) => Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 30.w),
-                                child: Tooltip(
-                                  message: HomeData.homeData[index]['hint'],
-                                  child: SvgPicture.asset(
-                                      HomeData.homeData[index]['icon'],
-                                      height: 70.h,
-                                      colorFilter: const ColorFilter.mode(
-                                          AppColors.whiteColor,
-                                          BlendMode.srcIn)),
+                                child: MouseRegion(
+                                  onEnter: (_) {
+                                    controller.changeSkillsIconHover(true);
+                                    controller.skillsHoverId =
+                                        HomeData.homeData[index]['id'];
+                                  },
+                                  onExit: (_) {
+                                    controller.changeSkillsIconHover(false);
+                                    controller.skillsHoverId = 0;
+                                  },
+                                  child: Tooltip(
+                                    message: HomeData.homeData[index]['hint'],
+                                    child: GetBuilder<HomeController>(
+                                        builder: (context) {
+                                      return AnimatedContainer(
+                                        duration:
+                                            const Duration(milliseconds: 500),
+                                        curve: Curves.easeInOutBack,
+                                        height: HomeData.homeData[index]
+                                                    ['id'] ==
+                                                controller.skillsHoverId
+                                            ? controller.skillsIconHeight
+                                            : controller
+                                                .skillsIconHeightNotHover,
+                                        width: HomeData.homeData[index]['id'] ==
+                                                controller.skillsHoverId
+                                            ? controller.skillsIconHeight
+                                            : controller
+                                                .skillsIconHeightNotHover,
+                                        child: SvgPicture.asset(
+                                            HomeData.homeData[index]['icon'],
+                                            colorFilter: const ColorFilter.mode(
+                                                AppColors.whiteColor,
+                                                BlendMode.srcIn)),
+                                      );
+                                    }),
+                                  ),
                                 ),
                               ),
                             )),
@@ -81,7 +147,7 @@ class MyHomePage extends StatelessWidget {
                           height: 100.h,
                         ),
                         Text(
-                          'Work Gallery',
+                          'work_gallery'.tr,
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                         SizedBox(
@@ -125,7 +191,11 @@ class MyHomePage extends StatelessWidget {
                                                   height: 10.h,
                                                 ),
                                                 Text(
-                                                  item['desc'],
+                                                  Get.locale?.languageCode ==
+                                                          'en'
+                                                      ? item['desc_en']
+                                                      : item['desc_ar'] ??
+                                                          item['desc_en'],
                                                   style: Theme.of(context)
                                                       .textTheme
                                                       .bodySmall,
