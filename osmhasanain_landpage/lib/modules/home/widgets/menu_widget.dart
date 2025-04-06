@@ -10,83 +10,83 @@ import 'package:osmhasanain_landpage/shared/styles/colors.dart';
 class MenuHomeWidget extends StatelessWidget {
   MenuHomeWidget({super.key, required this.onListItemTap});
   final dynamic Function(int index) onListItemTap;
+
   final HomeController controller = Get.find();
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        flex: 1,
-        child: Container(
-            decoration: const BoxDecoration(
-              color: AppColors.drawerColor,
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          listItem('home'.tr, IconsManager.iconHome,
-                              controller.menuIndex.value == 0, 0),
-                          listItem('skills'.tr, IconsManager.iconSkills,
-                              controller.menuIndex.value == 1, 1),
-                          listItem('work_gallery'.tr, IconsManager.iconList,
-                              controller.menuIndex.value == 2, 2),
-                          // const Spacer(),
-                        ]),
-                  ),
-                  SizedBox(
-                    height: 70.h,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: MenuData.socialMediaItems
-                          .map((item) => MouseRegion(
-                                onEnter: (_) {
-                                  controller.changeSocialIconHover(true);
-                                  controller.socialHoverId = item['id'];
+    return Obx(
+      () => Container(
+          width: 300.w,
+          decoration: const BoxDecoration(
+            color: AppColors.drawerColor,
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        listItem('home'.tr, IconsManager.iconHome,
+                            controller.menuIndex.value == 0, 0),
+                        listItem('skills'.tr, IconsManager.iconSkills,
+                            controller.menuIndex.value == 1, 1),
+                        listItem('work_gallery'.tr, IconsManager.iconList,
+                            controller.menuIndex.value == 2, 2),
+                      ]),
+                ),
+                SizedBox(
+                  height: 70.h,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: MenuData.socialMediaItems
+                        .map((item) => MouseRegion(
+                              onEnter: (_) {
+                                controller.changeSocialIconHover(true);
+                                controller.socialHoverId = item['id'];
+                              },
+                              onExit: (_) {
+                                controller.changeSocialIconHover(false);
+                                controller.socialHoverId = 0;
+                              },
+                              child: GestureDetector(
+                                onTap: () {
+                                  controller.lunchToLink(item['link']);
                                 },
-                                onExit: (_) {
-                                  controller.changeSocialIconHover(false);
-                                  controller.socialHoverId = 0;
-                                },
-                                child: GestureDetector(
-                                  onTap: () {
-                                    controller.lunchToLink(item['link']);
-                                  },
-                                  child: Tooltip(
-                                    message: item['title'],
-                                    child: GetBuilder<HomeController>(
-                                        builder: (context) {
-                                      return AnimatedContainer(
-                                        duration:
-                                            const Duration(milliseconds: 700),
-                                        curve: Curves.easeInOutBack,
-                                        height: item['id'] ==
-                                                controller.socialHoverId
-                                            ? controller.socialIconHeight
-                                            : controller
-                                                .socialIconHeightNotHover,
-                                        width: item['id'] ==
-                                                controller.socialHoverId
-                                            ? controller.socialIconHeight
-                                            : controller
-                                                .socialIconHeightNotHover,
-                                        child: SvgPicture.asset(
-                                          item['icon'],
-                                        ),
-                                      );
-                                    }),
-                                  ),
+                                child: Tooltip(
+                                  message: item['title'],
+                                  child: GetBuilder<HomeController>(
+                                      builder: (context) {
+                                    return AnimatedContainer(
+                                      duration:
+                                          const Duration(milliseconds: 700),
+                                      curve: Curves.easeInOutBack,
+                                      height: item['id'] ==
+                                              controller.socialHoverId
+                                          ? controller.socialIconHeight
+                                          : controller.socialIconHeightNotHover,
+                                      width: item['id'] ==
+                                              controller.socialHoverId
+                                          ? controller.socialIconHeight
+                                          : controller.socialIconHeightNotHover,
+                                      child: SvgPicture.asset(
+                                        item['icon'],
+                                      ),
+                                    );
+                                  }),
                                 ),
-                              ))
-                          .toList(),
-                    ),
-                  )
-                ],
-              ),
-            )));
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                )
+              ],
+            ),
+          )),
+    );
   }
 
   listItem(String title, String icon, bool isSelected, int index) {

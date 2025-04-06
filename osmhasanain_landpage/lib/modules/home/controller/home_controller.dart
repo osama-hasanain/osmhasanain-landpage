@@ -94,4 +94,30 @@ class HomeController extends GetxController {
     }
     update();
   }
+
+  late AnimationController menuAnimationController;
+  late Animation<double> menuAnimation;
+  late AnimationController homeAnimationController;
+  late Animation<double> homeAnimation;
+
+  initAnimationController(TickerProvider vsync) {
+    menuAnimationController = AnimationController(
+        vsync: vsync, duration: const Duration(milliseconds: 800));
+    menuAnimation = Tween<double>(begin: -300.w, end: 0).animate(
+        CurvedAnimation(
+            parent: menuAnimationController, curve: Curves.easeOutBack));
+
+    homeAnimationController = AnimationController(
+        vsync: vsync, duration: const Duration(milliseconds: 600));
+    homeAnimation = Tween<double>(begin: 1000.h, end: 0).animate(
+        CurvedAnimation(
+            parent: homeAnimationController, curve: Curves.easeOutBack));
+
+    menuAnimationController.forward();
+    menuAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        homeAnimationController.forward();
+      }
+    });
+  }
 }
