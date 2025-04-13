@@ -30,12 +30,21 @@ class MenuHomeWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Center(
+                          child: Image.asset(
+                            IconsManager.osmhasanainImage,
+                            height: 400.h,
+                            width: 300.w,
+                          ),
+                        ),
                         listItem('home'.tr, IconsManager.iconHome,
                             controller.menuIndex.value == 0, 0),
-                        listItem('skills'.tr, IconsManager.iconSkills,
+                        listItem('positions'.tr, IconsManager.iconThumbtack,
                             controller.menuIndex.value == 1, 1),
-                        listItem('work_gallery'.tr, IconsManager.iconList,
+                        listItem('skills'.tr, IconsManager.iconSkills,
                             controller.menuIndex.value == 2, 2),
+                        listItem('work_gallery'.tr, IconsManager.iconList,
+                            controller.menuIndex.value == 3, 3),
                       ]),
                 ),
                 SizedBox(

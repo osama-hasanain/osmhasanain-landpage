@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dart';

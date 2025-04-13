@@ -27,5 +27,11 @@ class MenuData {
       'link': 'https://github.com/osama-hasanain',
       'icon': IconsManager.whiteGithubIcon,
     },
+    {
+      'id': 5,
+      'title': 'linkedIn',
+      'link': 'https://www.linkedin.com/in/osama-m-hasanain-a8493a218',
+      'icon': IconsManager.iconLinkedIn,
+    },
   ];
 }

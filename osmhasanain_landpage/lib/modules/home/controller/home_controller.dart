@@ -22,13 +22,14 @@ class HomeController extends GetxController {
     if (!animateRun) {
       if (scrollController.position.pixels <= 20) {
         onMenuItemTap(0);
-      } else if (scrollController.position.pixels <= 120 &&
-          scrollController.position.pixels > 20) {
+      } else if (scrollController.position.pixels >= 140 &&
+          scrollController.position.pixels < 1100) {
         onMenuItemTap(1);
-      } else if (scrollController.position.pixels <= 220 &&
-          scrollController.position.pixels > 20 &&
-          scrollController.position.pixels > 120) {
+      } else if (scrollController.position.pixels >= 1100 &&
+          scrollController.position.pixels < 1200) {
         onMenuItemTap(2);
+      } else if (scrollController.position.pixels >= 1200) {
+        onMenuItemTap(3);
       }
     }
   }
@@ -41,9 +42,11 @@ class HomeController extends GetxController {
           index == 0
               ? 20
               : index == 1
-                  ? 120
-                  : 220,
-          duration: const Duration(milliseconds: 500),
+                  ? 140
+                  : index == 2
+                      ? 1100
+                      : 1200,
+          duration: const Duration(milliseconds: 700),
           curve: Curves.easeInOut,
         )
         .then((value) => animateRun = false);

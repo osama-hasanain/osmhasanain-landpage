@@ -118,6 +118,65 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 height: 100.h,
                               ),
                               Text(
+                                'positions'.tr,
+                                style: Theme.of(context).textTheme.labelLarge,
+                              ),
+                              SizedBox(
+                                height: 25.h,
+                              ),
+                              Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: HomeData.positionsItems
+                                      .map((item) => Padding(
+                                            padding:
+                                                EdgeInsets.only(bottom: 50.h),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text(
+                                                  Get.locale?.languageCode ==
+                                                          'en'
+                                                      ? item['title_en']
+                                                      : item['title_ar'] ??
+                                                          item['title_en'],
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .labelMedium,
+                                                ),
+                                                SizedBox(
+                                                  height: 10.h,
+                                                ),
+                                                Text(
+                                                  item['time'],
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall!
+                                                      .copyWith(
+                                                          color: AppColors
+                                                              .greyWhiteColor),
+                                                ),
+                                                SizedBox(
+                                                  height: 10.h,
+                                                ),
+                                                Text(
+                                                  Get.locale?.languageCode ==
+                                                          'en'
+                                                      ? item['desc_en']
+                                                      : item['desc_ar'] ??
+                                                          item['desc_en'],
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall,
+                                                ),
+                                              ],
+                                            ),
+                                          ))
+                                      .toList()),
+                              SizedBox(
+                                height: 50.h,
+                              ),
+                              Text(
                                 'skills'.tr,
                                 style: Theme.of(context).textTheme.labelLarge,
                               ),

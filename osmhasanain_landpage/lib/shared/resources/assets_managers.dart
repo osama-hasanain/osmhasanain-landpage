@@ -22,9 +22,15 @@ class IconsManager {
   static const String iconsGmail = 'assets/icons/svg/icons8-gmail.svg';
   static const String iconsWhatsapp = 'assets/icons/svg/icons8-whatsapp.svg';
   static const String iconsLanguage = 'assets/icons/svg/icons8-language.svg';
+  static const String iconSettings = 'assets/icons/svg/icons8-setting.svg';
+  static const String iconThumbtack = 'assets/icons/svg/thumbtack.svg';
+  static const String iconLinkedIn = 'assets/icons/svg/icons8-linkedin.svg';
 
   static const String paragonParentLogo =
       'assets/icons/jpg/paragon-parent-logo.jpg';
+
+  static const String osmhasanainImage =
+      'assets/icons/jpeg/osmhasanain-image.jpeg';
 
   static const String edrefLogo = 'assets/icons/png/edref-logo.png';
   static const String rmsLogo = 'assets/icons/png/rms-logo.png';
