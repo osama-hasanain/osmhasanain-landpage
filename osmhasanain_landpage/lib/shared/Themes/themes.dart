@@ -35,6 +35,11 @@ class CustomThemes {
         color: AppColors.whiteColor,
       ),
       labelMedium: TextStyle(
+        fontSize: 25.sp,
+        fontWeight: FontWeight.bold,
+        color: AppColors.whiteColor,
+      ),
+      labelSmall: TextStyle(
         fontSize: 20.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,

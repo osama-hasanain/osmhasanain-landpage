@@ -130,46 +130,172 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                       .map((item) => Padding(
                                             padding:
                                                 EdgeInsets.only(bottom: 50.h),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  Get.locale?.languageCode ==
-                                                          'en'
-                                                      ? item['title_en']
-                                                      : item['title_ar'] ??
-                                                          item['title_en'],
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .labelMedium,
-                                                ),
-                                                SizedBox(
-                                                  height: 10.h,
-                                                ),
-                                                Text(
-                                                  item['time'],
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall!
-                                                      .copyWith(
-                                                          color: AppColors
-                                                              .greyWhiteColor),
-                                                ),
-                                                SizedBox(
-                                                  height: 10.h,
-                                                ),
-                                                Text(
-                                                  Get.locale?.languageCode ==
-                                                          'en'
-                                                      ? item['desc_en']
-                                                      : item['desc_ar'] ??
-                                                          item['desc_en'],
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall,
-                                                ),
-                                              ],
+                                            child: MouseRegion(
+                                              onEnter: (_) {
+                                                // if()
+                                                controller
+                                                    .changePositionsItemHover(
+                                                        true);
+                                                controller.positionsHoverId =
+                                                    item['id'];
+                                              },
+                                              onExit: (_) {
+                                                controller
+                                                    .changePositionsItemHover(
+                                                        false);
+                                                controller.positionsHoverId = 0;
+                                              },
+                                              child: GetBuilder<HomeController>(
+                                                  builder: (_) {
+                                                return Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    TweenAnimationBuilder(
+                                                        tween: Tween<double>(
+                                                            begin: controller
+                                                                        .isPositionsItemHover &&
+                                                                    controller
+                                                                            .positionsHoverId ==
+                                                                        item[
+                                                                            'id']
+                                                                ? Theme.of(context)
+                                                                    .textTheme
+                                                                    .labelSmall
+                                                                    ?.fontSize
+                                                                : Theme.of(context)
+                                                                    .textTheme
+                                                                    .labelMedium
+                                                                    ?.fontSize,
+                                                            end: controller.isPositionsItemHover && controller.positionsHoverId == item['id']
+                                                                ? Theme.of(context)
+                                                                    .textTheme
+                                                                    .labelMedium
+                                                                    ?.fontSize
+                                                                : Theme.of(context)
+                                                                    .textTheme
+                                                                    .labelSmall
+                                                                    ?.fontSize),
+                                                        duration: const Duration(
+                                                            milliseconds: 100),
+                                                        builder: (context,
+                                                            value, child) {
+                                                          return Text(
+                                                            Get.locale?.languageCode ==
+                                                                    'en'
+                                                                ? item[
+                                                                    'title_en']
+                                                                : item['title_ar'] ??
+                                                                    item[
+                                                                        'title_en'],
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .labelSmall
+                                                                ?.copyWith(
+                                                                    fontSize:
+                                                                        value),
+                                                          );
+                                                        }),
+                                                    SizedBox(
+                                                      height: 10.h,
+                                                    ),
+                                                    TweenAnimationBuilder(
+                                                        tween: Tween<double>(
+                                                            begin: controller
+                                                                        .isPositionsItemHover &&
+                                                                    controller
+                                                                            .positionsHoverId ==
+                                                                        item[
+                                                                            'id']
+                                                                ? Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodySmall
+                                                                    ?.fontSize
+                                                                : Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodyMedium
+                                                                    ?.fontSize,
+                                                            end: controller.isPositionsItemHover && controller.positionsHoverId == item['id']
+                                                                ? Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodyMedium
+                                                                    ?.fontSize
+                                                                : Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodySmall
+                                                                    ?.fontSize),
+                                                        duration: const Duration(
+                                                            milliseconds: 100),
+                                                        builder: (context,
+                                                            value, child) {
+                                                          return Text(
+                                                            item['time'],
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .bodySmall!
+                                                                .copyWith(
+                                                                    color: AppColors
+                                                                        .greyWhiteColor,
+                                                                    fontSize:
+                                                                        value),
+                                                          );
+                                                        }),
+                                                    SizedBox(
+                                                      height: 10.h,
+                                                    ),
+                                                    TweenAnimationBuilder(
+                                                        tween: Tween<double>(
+                                                            begin: controller
+                                                                        .isPositionsItemHover &&
+                                                                    controller
+                                                                            .positionsHoverId ==
+                                                                        item[
+                                                                            'id']
+                                                                ? Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodySmall
+                                                                    ?.fontSize
+                                                                : Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodyMedium
+                                                                    ?.fontSize,
+                                                            end: controller.isPositionsItemHover && controller.positionsHoverId == item['id']
+                                                                ? Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodyMedium
+                                                                    ?.fontSize
+                                                                : Theme.of(context)
+                                                                    .textTheme
+                                                                    .bodySmall
+                                                                    ?.fontSize),
+                                                        duration: const Duration(
+                                                            milliseconds: 100),
+                                                        builder: (context,
+                                                            value, child) {
+                                                          return Text(
+                                                            Get.locale?.languageCode ==
+                                                                    'en'
+                                                                ? item[
+                                                                    'desc_en']
+                                                                : item['desc_ar'] ??
+                                                                    item[
+                                                                        'desc_en'],
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .bodySmall!
+                                                                .copyWith(
+                                                                    color: AppColors
+                                                                        .greyWhiteColor,
+                                                                    fontSize:
+                                                                        value),
+                                                          );
+                                                        }),
+                                                  ],
+                                                );
+                                              }),
                                             ),
                                           ))
                                       .toList()),
@@ -282,7 +408,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                         item['title'],
                                                         style: Theme.of(context)
                                                             .textTheme
-                                                            .labelMedium,
+                                                            .labelSmall,
                                                       ),
                                                       SizedBox(
                                                         height: 10.h,
