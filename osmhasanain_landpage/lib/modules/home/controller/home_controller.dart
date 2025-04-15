@@ -102,22 +102,15 @@ class HomeController extends GetxController {
   late bool isPositionsItemHover = false;
   changePositionsItemHover(bool value) {
     isPositionsItemHover = value;
-    // setPositionsItemSize();
     update();
   }
 
-  // late double positionsItemSizeHover = 100.h;
-  // late double positionsItemSizeNotHover = 70.h;
-  // late double positionsItemSize = 70.h;
-
-  // setPositionsItemSize() {
-  //   if (isPositionsItemHover) {
-  //     positionsItemSize = positionsItemSizeHover;
-  //   } else {
-  //     positionsItemSize = positionsItemSizeNotHover;
-  //   }
-  //   update();
-  // }
+  late int workGalleryHoverId = 0;
+  late bool isWorkGalleryItemHover = false;
+  changeWorkGalleryItemHover(bool value) {
+    isWorkGalleryItemHover = value;
+    update();
+  }
 
   late AnimationController menuAnimationController;
   late Animation<double> menuAnimation;

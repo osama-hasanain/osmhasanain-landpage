@@ -6,6 +6,7 @@ import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dar
 import 'package:osmhasanain_landpage/shared/resources/assets_managers.dart';
 import 'package:osmhasanain_landpage/shared/resources/menu_data.dart';
 import 'package:osmhasanain_landpage/shared/styles/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MenuHomeWidget extends StatelessWidget {
   MenuHomeWidget({super.key, required this.onListItemTap});
@@ -62,8 +63,21 @@ class MenuHomeWidget extends StatelessWidget {
                                 controller.socialHoverId = 0;
                               },
                               child: GestureDetector(
-                                onTap: () {
-                                  controller.lunchToLink(item['link']);
+                                onTap: () async {
+                                  if (item['isGmail']) {
+                                    final Uri emailUri = Uri(
+                                      scheme: 'mailto',
+                                      path: item['link'],
+                                    );
+
+                                    if (await canLaunchUrl(emailUri)) {
+                                      await launchUrl(emailUri);
+                                    } else {
+                                      print('Could not launch email app');
+                                    }
+                                  } else {
+                                    controller.lunchToLink(item['link']);
+                                  }
                                 },
                                 child: Tooltip(
                                   message: item['title'],

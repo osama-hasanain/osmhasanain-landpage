@@ -20,6 +20,7 @@ class IconsManager {
   static const String iconsInstagram = 'assets/icons/svg/icons8-instagram.svg';
   static const String iconsX = 'assets/icons/svg/icons8-x.svg';
   static const String iconsGmail = 'assets/icons/svg/icons8-gmail.svg';
+  static const String iconsGmail2 = 'assets/icons/svg/icons8-gmail-2.svg';
   static const String iconsWhatsapp = 'assets/icons/svg/icons8-whatsapp.svg';
   static const String iconsLanguage = 'assets/icons/svg/icons8-language.svg';
   static const String iconSettings = 'assets/icons/svg/icons8-setting.svg';

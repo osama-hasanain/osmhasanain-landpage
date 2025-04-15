@@ -59,6 +59,7 @@ class HomeData {
   ];
   static const List<Map<String, dynamic>> worksGalleryItems = [
     {
+      'id': 1,
       'title': 'Paragon Parent',
       'desc_en':
           'The paragon is ERP system for School In AED and in other’s countries.',
@@ -67,6 +68,7 @@ class HomeData {
       'img': IconsManager.paragonParentLogo,
     },
     {
+      'id': 2,
       'title': 'Edref',
       'desc_en':
           'The EdRef platform was established with a collective initiative keen to make all efforts and endeavors to contribute to placing the peoples of the countries at the forefront of their priorities in the domain of empowerment because they are the cornerstone of human development and the prosperity of peoples.',
@@ -75,6 +77,7 @@ class HomeData {
       'img': IconsManager.edrefLogo,
     },
     {
+      'id': 3,
       'title': 'RMS-HR',
       'desc_en':
           'The RMS Innovative and straightforward attendance application,Attendance and departure system without any complex devices or installations and rack the attendance and departure of employees in several separate locations, especially in the field of construction',

@@ -23,6 +23,11 @@ class LocalizationService extends Translations {
           'skills': 'Skills',
           'positions': 'Positions',
           'work_gallery': 'Work Gallery',
+          'work_gallery_desc':
+              'This is examples for projects I worked about it',
+          'contact_me': 'Contact Me',
+          'contact_me_desc':
+              'If you have any work, questions or inquiries, feel free to reach out to us within contacts links in side menu.',
           'change_language': 'change language to Arabic',
         },
         'ar_EG': {
@@ -33,6 +38,10 @@ class LocalizationService extends Translations {
           'skills': 'المهارات',
           'positions': 'مواقع',
           'work_gallery': 'معرض الأعمال',
+          'work_gallery_desc': 'هذه أمثلة لمشاريع قمت بالعمل عليها',
+          'contact_me': 'تواصل معي',
+          'contact_me_desc':
+              'إذا كان لديك أي عمل أو أسئلة أو استفسارات، فلا تتردد في التواصل معنا عبر جهات الاتصال في قائمة التنقل الجانبية.',
           'change_language': 'تغيير اللغة إلى الإنجليزية',
         },
       };
