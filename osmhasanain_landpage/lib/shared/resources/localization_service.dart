@@ -29,6 +29,7 @@ class LocalizationService extends Translations {
           'contact_me_desc':
               'If you have any work, questions or inquiries, feel free to reach out to us within contacts links in side menu.',
           'change_language': 'change language to Arabic',
+          'grade_you_visit': 'Glad you visited 😄',
         },
         'ar_EG': {
           'job_title': 'خبير مطور تطبيقات الموبايل',
@@ -36,30 +37,19 @@ class LocalizationService extends Translations {
               'مطور جوال شغوف، أصمم تطبيقات عالية الأداء وسهلة الاستخدام لنظامي الايفون و الاندرويد . خبرة في Flutter والتطوير الأصلي لتجسيد أفكارك بتجارب سلسة 🚀',
           'home': 'الرئيسية',
           'skills': 'المهارات',
-          'positions': 'مواقع',
+          'positions': 'مراكز عمل',
           'work_gallery': 'معرض الأعمال',
           'work_gallery_desc': 'هذه أمثلة لمشاريع قمت بالعمل عليها',
           'contact_me': 'تواصل معي',
           'contact_me_desc':
               'إذا كان لديك أي عمل أو أسئلة أو استفسارات، فلا تتردد في التواصل معنا عبر جهات الاتصال في قائمة التنقل الجانبية.',
           'change_language': 'تغيير اللغة إلى الإنجليزية',
+          'grade_you_visit': 'سعيد بزيارتك 😄',
         },
       };
 
   // Change Language
   static void changeLocale(String langCode, String countryCode) {
-    // Locale newLocale = Locale(langCode, countryCode);
-    // // supportedLocales.firstWhere(
-    // //   (locale) => locale.languageCode == langCode,
-    // //   orElse: () => supportedLocales.first,
-    // // );
-
-    // if (Get.locale != newLocale) {
-
     Get.updateLocale(Locale(langCode, countryCode));
-    // .then((value) => Get.appUpdate());
-    // } else {
-    //   print("Locale already set to: $newLocale");
-    // }
   }
 }

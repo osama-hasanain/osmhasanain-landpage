@@ -137,4 +137,12 @@ class HomeController extends GetxController {
       }
     });
   }
+
+  late bool isDeveloperImageHover = false;
+  late bool isDeveloperImageHoverFirstTime = true;
+  changeDeveloperImageHover(bool value) {
+    isDeveloperImageHover = value;
+    isDeveloperImageHoverFirstTime = false;
+    update();
+  }
 }

@@ -66,6 +66,7 @@ class HomeData {
       'desc_ar':
           'Paragon هو نظام تخطيط موارد المؤسسات (ERP) للمدارس في الإمارات العربية المتحدة وفي بلدان أخرى.',
       'img': IconsManager.paragonParentLogo,
+      'url': 'https://apps.apple.com/il/app/paragon-gis/id6453761021',
     },
     {
       'id': 2,
@@ -75,6 +76,7 @@ class HomeData {
       'desc_ar':
           'تأسست منصة EdRef بمبادرة جماعية حرصت على بذل كافة الجهود والمساعي للمساهمة في وضع شعوب الدول في مقدمة أولوياتها في مجال التمكين لأنها حجر الأساس في التنمية البشرية وازدهار الشعوب.',
       'img': IconsManager.edrefLogo,
+      'url': 'https://apps.apple.com/il/app/edref/id6446090154',
     },
     {
       'id': 3,
@@ -84,6 +86,7 @@ class HomeData {
       'desc_ar':
           'تطبيق RMS المبتكر والمباشر لتسجيل الحضور والانصراف بدون أي أجهزة أو تركيبات معقدة وتسجيل حضور وانصراف الموظفين في عدة مواقع منفصلة وخاصة في مجال الإنشاءات',
       'img': IconsManager.rmsLogo,
+      'url': 'https://apps.apple.com/il/app/rms-hr/id1673261674',
     },
   ];
 

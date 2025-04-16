@@ -132,7 +132,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               SizedBox(
                                 height: 100.h,
                               ),
-                              ContactUsWidget()
+                              const ContactUsWidget(),
+                              SizedBox(
+                                height: 50.h,
+                              ),
                             ],
                           ),
                         ),

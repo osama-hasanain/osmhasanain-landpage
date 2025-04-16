@@ -31,13 +31,80 @@ class MenuHomeWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Center(
-                          child: Image.asset(
-                            IconsManager.osmhasanainImage,
-                            height: 400.h,
-                            width: 300.w,
-                          ),
-                        ),
+                        GetBuilder<HomeController>(builder: (context) {
+                          return MouseRegion(
+                            onEnter: (_) {
+                              controller.changeDeveloperImageHover(true);
+                            },
+                            onExit: (_) {
+                              controller.changeDeveloperImageHover(false);
+                            },
+                            child: Stack(children: [
+                              TweenAnimationBuilder(
+                                  tween: Tween<double>(
+                                    begin: controller.isDeveloperImageHover
+                                        ? 1
+                                        : 0,
+                                    end: controller.isDeveloperImageHover
+                                        ? 0
+                                        : 1,
+                                  ),
+                                  duration: Duration(
+                                      seconds: controller
+                                              .isDeveloperImageHoverFirstTime
+                                          ? 5
+                                          : 1),
+                                  builder: (context, value, child) {
+                                    return Center(
+                                      child: Opacity(
+                                        opacity: value,
+                                        child: Image.asset(
+                                          (Get.locale?.languageCode ?? 'en') ==
+                                                  'en'
+                                              ? IconsManager
+                                                  .osmhasanainLeftToRightImage
+                                              : IconsManager
+                                                  .osmhasanainRightToLeftImage,
+                                          height: 400.h,
+                                          width: 300.w,
+                                        ),
+                                      ),
+                                    );
+                                  }),
+                              TweenAnimationBuilder(
+                                  tween: Tween<double>(
+                                    begin: controller.isDeveloperImageHover
+                                        ? 0
+                                        : 1,
+                                    end: controller.isDeveloperImageHover
+                                        ? 1
+                                        : 0,
+                                  ),
+                                  duration: Duration(
+                                      seconds: controller
+                                              .isDeveloperImageHoverFirstTime
+                                          ? 5
+                                          : 1),
+                                  builder: (context, value, child) {
+                                    return Center(
+                                      child: Opacity(
+                                        opacity: value,
+                                        child: Image.asset(
+                                          (Get.locale?.languageCode ?? 'en') ==
+                                                  'en'
+                                              ? IconsManager
+                                                  .osmhasanainLeftToRightImageFill
+                                              : IconsManager
+                                                  .osmhasanainRightToLeftImageFill,
+                                          height: 400.h,
+                                          width: 300.w,
+                                        ),
+                                      ),
+                                    );
+                                  })
+                            ]),
+                          );
+                        }),
                         listItem('home'.tr, IconsManager.iconHome,
                             controller.menuIndex.value == 0, 0),
                         listItem('positions'.tr, IconsManager.iconThumbtack,

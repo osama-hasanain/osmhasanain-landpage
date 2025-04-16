@@ -30,9 +30,14 @@ class IconsManager {
   static const String paragonParentLogo =
       'assets/icons/jpg/paragon-parent-logo.jpg';
 
-  static const String osmhasanainImage =
-      'assets/icons/jpeg/osmhasanain-image.jpeg';
-
   static const String edrefLogo = 'assets/icons/png/edref-logo.png';
   static const String rmsLogo = 'assets/icons/png/rms-logo.png';
+  static const String osmhasanainLeftToRightImage =
+      'assets/icons/png/osmhasanain-left-right-image.png';
+  static const String osmhasanainRightToLeftImage =
+      'assets/icons/png/osmhasanain-right-left-image.png';
+  static const String osmhasanainLeftToRightImageFill =
+      'assets/icons/png/osmhasanain-left-right-image-fill.png';
+  static const String osmhasanainRightToLeftImageFill =
+      'assets/icons/png/osmhasanain-right-left-image-fill.png';
 }
