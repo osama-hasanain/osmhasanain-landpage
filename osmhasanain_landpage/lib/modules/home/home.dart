@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dart';
+import 'package:osmhasanain_landpage/modules/home/widgets/blogs_widget.dart';
 import 'package:osmhasanain_landpage/modules/home/widgets/contact_me_widget.dart';
 import 'package:osmhasanain_landpage/modules/home/widgets/menu_widget.dart';
 import 'package:osmhasanain_landpage/modules/home/widgets/positions_widget.dart';
@@ -26,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     controller.initAnimationController(this);
+    controller.getBlogsList();
   }
 
   @override
@@ -120,15 +122,17 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               SizedBox(
                                 height: 100.h,
                               ),
+                              SkillsWidget(),
+                              SizedBox(
+                                height: 80.h,
+                              ),
                               PositionsWidget(),
                               SizedBox(
                                 height: 50.h,
                               ),
-                              SkillsWidget(),
-                              SizedBox(
-                                height: 100.h,
-                              ),
                               WorkGalleryWidget(),
+                              if (controller.blogsList.isNotEmpty)
+                                BlogsWidget(),
                               SizedBox(
                                 height: 100.h,
                               ),

@@ -107,12 +107,18 @@ class MenuHomeWidget extends StatelessWidget {
                         }),
                         listItem('home'.tr, IconsManager.iconHome,
                             controller.menuIndex.value == 0, 0),
-                        listItem('positions'.tr, IconsManager.iconThumbtack,
-                            controller.menuIndex.value == 1, 1),
                         listItem('skills'.tr, IconsManager.iconSkills,
+                            controller.menuIndex.value == 1, 1),
+                        listItem('positions'.tr, IconsManager.iconThumbtack,
                             controller.menuIndex.value == 2, 2),
-                        listItem('work_gallery'.tr, IconsManager.iconList,
-                            controller.menuIndex.value == 3, 3),
+                        listItem(
+                            'work_gallery'.tr,
+                            IconsManager.iconWorkGallery,
+                            controller.menuIndex.value == 3,
+                            3),
+                        if (controller.blogsList.isNotEmpty)
+                          listItem('blogs'.tr, IconsManager.iconBlog,
+                              controller.menuIndex.value == 4, 4),
                       ]),
                 ),
                 SizedBox(
@@ -197,6 +203,9 @@ class MenuHomeWidget extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 icon,
+                height: 25.h,
+                width: 25.w,
+                fit: BoxFit.fill,
                 colorFilter: ColorFilter.mode(
                     isSelected ? AppColors.blackColor : AppColors.whiteColor,
                     BlendMode.srcIn),

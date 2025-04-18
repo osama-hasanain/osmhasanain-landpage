@@ -26,6 +26,9 @@ class IconsManager {
   static const String iconSettings = 'assets/icons/svg/icons8-setting.svg';
   static const String iconThumbtack = 'assets/icons/svg/thumbtack.svg';
   static const String iconLinkedIn = 'assets/icons/svg/icons8-linkedin.svg';
+  static const String iconBlog = 'assets/icons/svg/icons8-blog.svg';
+  static const String iconWorkGallery =
+      'assets/icons/svg/icons8-work-gallery.svg';
 
   static const String paragonParentLogo =
       'assets/icons/jpg/paragon-parent-logo.jpg';

@@ -16,12 +16,20 @@ class MyWebsite extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, widget) => GetMaterialApp(
+        title: 'Osama Hasanain - Applications Developer',
         debugShowCheckedModeBanner: false,
         theme: CustomThemes.darkTheme,
         locale: getLocaleFromBrowser(),
         fallbackLocale: const Locale('en', 'US'),
         translations: LocalizationService(),
         home: MyHomePage(),
+        builder: (context, child) {
+          return Title(
+            title: 'tab_title'.tr,
+            color: Colors.black,
+            child: child!,
+          );
+        },
       ),
     );
   }

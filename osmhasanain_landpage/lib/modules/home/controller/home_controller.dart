@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/state_manager.dart';
+import 'package:osmhasanain_landpage/models/blog_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeController extends GetxController {
@@ -23,13 +25,16 @@ class HomeController extends GetxController {
       if (scrollController.position.pixels <= 20) {
         onMenuItemTap(0);
       } else if (scrollController.position.pixels >= 140 &&
-          scrollController.position.pixels < 1100) {
+          scrollController.position.pixels < 400) {
         onMenuItemTap(1);
-      } else if (scrollController.position.pixels >= 1100 &&
-          scrollController.position.pixels < 1200) {
+      } else if (scrollController.position.pixels >= 400 &&
+          scrollController.position.pixels < 1500) {
         onMenuItemTap(2);
-      } else if (scrollController.position.pixels >= 1200) {
+      } else if (scrollController.position.pixels >= 1500 &&
+          scrollController.position.pixels < 1800) {
         onMenuItemTap(3);
+      } else if (scrollController.position.pixels >= 1800) {
+        onMenuItemTap(4);
       }
     }
   }
@@ -44,8 +49,10 @@ class HomeController extends GetxController {
               : index == 1
                   ? 140
                   : index == 2
-                      ? 1100
-                      : 1200,
+                      ? 400
+                      : index == 3
+                          ? 1500
+                          : 2000,
           duration: const Duration(milliseconds: 700),
           curve: Curves.easeInOut,
         )
@@ -144,5 +151,21 @@ class HomeController extends GetxController {
     isDeveloperImageHover = value;
     isDeveloperImageHoverFirstTime = false;
     update();
+  }
+
+  List<BlogModel> blogsList = [];
+  getBlogsList() {
+    blogsList.clear();
+    FirebaseFirestore.instance
+        .collection('blogs')
+        .snapshots()
+        .listen((snapshot) {
+      for (var doc in snapshot.docs) {
+        var blog = BlogModel.fromJson(doc.data());
+        blog.id = doc.id;
+        blogsList.add(blog);
+        update();
+      }
+    });
   }
 }

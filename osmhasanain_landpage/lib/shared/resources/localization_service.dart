@@ -16,6 +16,7 @@ class LocalizationService extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': {
+          'tab_title': 'Osama Hasanain - Applications Developer',
           'job_title': 'Mobile Apps Developer Expert',
           'short_desc':
               'Passionate mobile developer crafting high-performance, user-friendly apps for iOS and Android. Expertise in Flutter and native development to bring ideas to life with seamless experiences 🚀',
@@ -30,9 +31,11 @@ class LocalizationService extends Translations {
               'If you have any work, questions or inquiries, feel free to reach out to us within contacts links in side menu.',
           'change_language': 'change language to Arabic',
           'grade_you_visit': 'Glad you visited 😄',
+          'blogs': 'Blogs',
         },
         'ar_EG': {
-          'job_title': 'خبير مطور تطبيقات الموبايل',
+          'tab_title': 'أسامة حسنين - خبير تطوير تطبيقات',
+          'job_title': 'خبير تطوير تطبيقات الموبايل',
           'short_desc':
               'مطور جوال شغوف، أصمم تطبيقات عالية الأداء وسهلة الاستخدام لنظامي الايفون و الاندرويد . خبرة في Flutter والتطوير الأصلي لتجسيد أفكارك بتجارب سلسة 🚀',
           'home': 'الرئيسية',
@@ -45,6 +48,7 @@ class LocalizationService extends Translations {
               'إذا كان لديك أي عمل أو أسئلة أو استفسارات، فلا تتردد في التواصل معنا عبر جهات الاتصال في قائمة التنقل الجانبية.',
           'change_language': 'تغيير اللغة إلى الإنجليزية',
           'grade_you_visit': 'سعيد بزيارتك 😄',
+          'blogs': 'المقالات',
         },
       };
 
