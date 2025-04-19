@@ -122,7 +122,7 @@ class MenuHomeWidget extends StatelessWidget {
                       ]),
                 ),
                 SizedBox(
-                  height: 70.h,
+                  height: 70.r,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: MenuData.socialMediaItems
@@ -203,8 +203,8 @@ class MenuHomeWidget extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 icon,
-                height: 25.h,
-                width: 25.w,
+                height: 25.r,
+                width: 25.r,
                 fit: BoxFit.fill,
                 colorFilter: ColorFilter.mode(
                     isSelected ? AppColors.blackColor : AppColors.whiteColor,
@@ -218,7 +218,7 @@ class MenuHomeWidget extends StatelessWidget {
                 style: TextStyle(
                   color:
                       isSelected ? AppColors.blackColor : AppColors.whiteColor,
-                  fontSize: 20,
+                  fontSize: 20.sp,
                 ),
               ),
             ],

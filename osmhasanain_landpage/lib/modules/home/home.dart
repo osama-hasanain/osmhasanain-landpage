@@ -14,7 +14,7 @@ import 'package:osmhasanain_landpage/shared/resources/localization_service.dart'
 import 'package:osmhasanain_landpage/shared/styles/colors.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({super.key});
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

@@ -72,9 +72,9 @@ class HomeController extends GetxController {
     setSocialIconHeight();
   }
 
-  late double socialIconHeightHover = 40.h;
-  late double socialIconHeightNotHover = 25.h;
-  late double socialIconHeight = 25.h;
+  late double socialIconHeightHover = 40.r;
+  late double socialIconHeightNotHover = 25.r;
+  late double socialIconHeight = 25.r;
 
   setSocialIconHeight() {
     if (isSocialIconHover) {

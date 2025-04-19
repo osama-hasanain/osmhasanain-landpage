@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dart';
 import 'dart:async';
 
+import 'package:osmhasanain_landpage/shared/styles/colors.dart';
+
 class BlogsWidget extends StatefulWidget {
   const BlogsWidget({super.key});
 
@@ -115,17 +117,40 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                   ),
                                   child: Column(
                                     children: [
-                                      Container(
-                                        height: 500.h,
-                                        width: 500.h,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8.r),
-                                          image: DecorationImage(
-                                            image: NetworkImage(blog.img!),
-                                            fit: BoxFit.cover,
+                                      Stack(
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional.topEnd,
+                                            child: IconButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              icon: Icon(
+                                                Icons.close,
+                                                size: 25.sp,
+                                              ),
+                                              color: AppColors.whiteColor,
+                                            ),
                                           ),
-                                        ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional.center,
+                                            child: Container(
+                                              height: 500.h,
+                                              width: 500.h,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.r),
+                                                image: DecorationImage(
+                                                  image:
+                                                      NetworkImage(blog.img!),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                       SizedBox(
                                         height: 10.h,

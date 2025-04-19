@@ -17,9 +17,9 @@ class LocalizationService extends Translations {
   Map<String, Map<String, String>> get keys => {
         'en_US': {
           'tab_title': 'Osama Hasanain - Applications Developer',
-          'job_title': 'Mobile Apps Developer Expert',
+          'job_title': 'Applications Developer Expert',
           'short_desc':
-              'Passionate mobile developer crafting high-performance, user-friendly apps for iOS and Android. Expertise in Flutter and native development to bring ideas to life with seamless experiences 🚀',
+              'Hi, I\'m Osama M. Hasanain — a cross-platform app developer specialized in Flutter. I build modern, high-performance applications for Android, iOS, Windows, macOS, and the web — all from a single codebase. With experience leading development teams on multiple projects, I focus on clean UI, smooth performance, and scalable architecture. I turn ideas into powerful, real-world applications that deliver results.',
           'home': 'Home',
           'skills': 'Skills',
           'positions': 'Positions',
@@ -28,7 +28,7 @@ class LocalizationService extends Translations {
               'This is examples for projects I worked about it',
           'contact_me': 'Contact Me',
           'contact_me_desc':
-              'If you have any work, questions or inquiries, feel free to reach out to us within contacts links in side menu.',
+              'Whether it’s a work, a collaboration, or just tech talk within contacts links in side menu.',
           'change_language': 'change language to Arabic',
           'grade_you_visit': 'Glad you visited 😄',
           'blogs': 'Blogs',
@@ -37,7 +37,7 @@ class LocalizationService extends Translations {
           'tab_title': 'أسامة حسنين - خبير تطوير تطبيقات',
           'job_title': 'خبير تطوير تطبيقات الموبايل',
           'short_desc':
-              'مطور جوال شغوف، أصمم تطبيقات عالية الأداء وسهلة الاستخدام لنظامي الايفون و الاندرويد . خبرة في Flutter والتطوير الأصلي لتجسيد أفكارك بتجارب سلسة 🚀',
+              'مرحباً، أنا أسامة حسنين — مطور تطبيقات متعددة المنصات باستخدام Flutter. أقوم ببناء تطبيقات حديثة وعالية الأداء لأنظمة Android وiOS وWindows وmacOS والويب من خلال كود واحد فقط. لدي خبرة في قيادة فرق التطوير في عدة مشاريع، مع تركيزي على تصميم واجهات نظيفة، وأداء سلس، وبنية قوية وقابلة للتوسع. أحوّل الأفكار إلى تطبيقات عملية وقوية تقدم نتائج حقيقية.',
           'home': 'الرئيسية',
           'skills': 'المهارات',
           'positions': 'مراكز عمل',
@@ -45,7 +45,7 @@ class LocalizationService extends Translations {
           'work_gallery_desc': 'هذه أمثلة لمشاريع قمت بالعمل عليها',
           'contact_me': 'تواصل معي',
           'contact_me_desc':
-              'إذا كان لديك أي عمل أو أسئلة أو استفسارات، فلا تتردد في التواصل معنا عبر جهات الاتصال في قائمة التنقل الجانبية.',
+              'سواء كان عملاً، تعاونًا، أو حتى حديثًا تقنيًا — يسعدني التواصل عبر جهات الاتصال في قائمة التنقل الجانبية.',
           'change_language': 'تغيير اللغة إلى الإنجليزية',
           'grade_you_visit': 'سعيد بزيارتك 😄',
           'blogs': 'المقالات',
