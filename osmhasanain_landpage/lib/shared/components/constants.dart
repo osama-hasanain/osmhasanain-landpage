@@ -1,1 +1,3 @@
-class Constants {}
+class Constants {
+  static bool isMobileScreen = false;
+}

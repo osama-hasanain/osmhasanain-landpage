@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:osmhasanain_landpage/modules/home/home.dart';
 import 'package:osmhasanain_landpage/shared/Themes/themes.dart';
+import 'package:osmhasanain_landpage/shared/components/constants.dart';
 import '../../shared/resources/localization_service.dart';
 import 'dart:html' as html;
 
@@ -11,6 +12,10 @@ class MyWebsite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 700) {
+      Constants.isMobileScreen = true;
+    }
+
     return ScreenUtilInit(
       designSize: const Size(1512, 982),
       minTextAdapt: true,
@@ -18,7 +23,9 @@ class MyWebsite extends StatelessWidget {
       builder: (context, widget) => GetMaterialApp(
         title: 'Osama Hasanain - Applications Developer',
         debugShowCheckedModeBanner: false,
-        theme: CustomThemes.darkTheme,
+        theme: Constants.isMobileScreen
+            ? CustomThemes.mobileTheme
+            : CustomThemes.webTheme,
         locale: getLocaleFromBrowser(),
         fallbackLocale: const Locale('en', 'US'),
         translations: LocalizationService(),

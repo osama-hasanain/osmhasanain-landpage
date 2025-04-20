@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dart';
+import 'package:osmhasanain_landpage/shared/components/constants.dart';
 import 'package:osmhasanain_landpage/shared/resources/home_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -61,12 +62,16 @@ class WorkGalleryWidget extends StatelessWidget {
                                           controller.workGalleryHoverId ==
                                               item['id']
                                       ? 100.w
-                                      : 80.w,
+                                      : Constants.isMobileScreen
+                                          ? 120.w
+                                          : 80.w,
                                   height: controller.isWorkGalleryItemHover &&
                                           controller.workGalleryHoverId ==
                                               item['id']
                                       ? 100.h
-                                      : 80.h,
+                                      : Constants.isMobileScreen
+                                          ? 50.h
+                                          : 80.h,
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(item['img']),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/state_manager.dart';
 import 'package:osmhasanain_landpage/models/blog_model.dart';
+import 'package:osmhasanain_landpage/shared/components/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeController extends GetxController {
@@ -73,8 +74,8 @@ class HomeController extends GetxController {
   }
 
   late double socialIconHeightHover = 40.r;
-  late double socialIconHeightNotHover = 25.r;
-  late double socialIconHeight = 25.r;
+  late double socialIconHeightNotHover = Constants.isMobileScreen ? 50.r : 25.r;
+  late double socialIconHeight = Constants.isMobileScreen ? 50.r : 25.r;
 
   setSocialIconHeight() {
     if (isSocialIconHover) {

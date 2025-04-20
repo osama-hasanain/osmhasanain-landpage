@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:osmhasanain_landpage/modules/home/widgets/contacts_choices_widget.dart';
+import 'package:osmhasanain_landpage/shared/components/constants.dart';
 
 class ContactUsWidget extends StatelessWidget {
   const ContactUsWidget({super.key});
@@ -13,13 +16,16 @@ class ContactUsWidget extends StatelessWidget {
           'contact_me'.tr,
           style: Theme.of(context).textTheme.labelLarge,
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: Constants.isMobileScreen ? 10.h : 20.h),
         Text(
-          'contact_me_desc'.tr,
+          Constants.isMobileScreen
+              ? 'contact_me_desc_mobile'.tr
+              : 'contact_me_desc'.tr,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodySmall,
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20.h),
+        if (Constants.isMobileScreen) ContactsChoicesWidget()
       ],
     );
   }

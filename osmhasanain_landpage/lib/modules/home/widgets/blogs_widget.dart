@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dart';
+import 'package:osmhasanain_landpage/shared/components/constants.dart';
 import 'dart:async';
 
 import 'package:osmhasanain_landpage/shared/styles/colors.dart';
@@ -66,9 +67,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
             'blogs'.tr,
             style: Theme.of(context).textTheme.labelLarge,
           ),
-          SizedBox(
-            height: 50.h,
-          ),
+          if (!Constants.isMobileScreen)
+            SizedBox(
+              height: 50.h,
+            ),
           SizedBox(
             height: 500.h,
             child: ListView.builder(
