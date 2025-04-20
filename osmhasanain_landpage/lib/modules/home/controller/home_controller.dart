@@ -94,8 +94,8 @@ class HomeController extends GetxController {
   }
 
   late double skillsIconHeightHover = 100.h;
-  late double skillsIconHeightNotHover = 70.h;
-  late double skillsIconHeight = 70.h;
+  late double skillsIconHeightNotHover = Constants.isMobileScreen ? 50.h : 70.h;
+  late double skillsIconHeight = Constants.isMobileScreen ? 50.h : 70.h;
 
   setSkillsIconHeight() {
     if (isSkillsIconHover) {

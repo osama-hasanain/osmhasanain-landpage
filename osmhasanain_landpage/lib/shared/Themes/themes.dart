@@ -45,27 +45,27 @@ class CustomThemes {
     brightness: Brightness.dark,
     textTheme: TextTheme(
       labelLarge: TextStyle(
-        fontSize: 50.sp,
+        fontSize: 80.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       labelMedium: TextStyle(
-        fontSize: 40.sp,
+        fontSize: 60.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       labelSmall: TextStyle(
-        fontSize: 30.sp,
+        fontSize: 60.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       bodyMedium: TextStyle(
-        fontSize: 30.sp,
+        fontSize: 60.sp,
         fontWeight: FontWeight.normal,
         color: AppColors.whiteColor,
       ),
       bodySmall: TextStyle(
-        fontSize: 25.sp,
+        fontSize: 45.sp,
         fontWeight: FontWeight.normal,
         color: AppColors.whiteColor,
       ),

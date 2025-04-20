@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:osmhasanain_landpage/modules/home/controller/home_controller.dart';
-import 'package:osmhasanain_landpage/modules/home/widgets/contacts_choices_widget.dart';
+import 'package:osmhasanain_landpage/shared/components/constants.dart';
+import 'package:osmhasanain_landpage/shared/components/contacts_choices_widget.dart';
 import 'package:osmhasanain_landpage/shared/resources/assets_managers.dart';
 import 'package:osmhasanain_landpage/shared/styles/colors.dart';
 
@@ -17,7 +18,7 @@ class MenuHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Container(
-          width: 300.w,
+          width: Constants.isMobileScreen ? 0 : 300.w,
           decoration: const BoxDecoration(
             color: AppColors.drawerColor,
           ),
@@ -65,7 +66,9 @@ class MenuHomeWidget extends StatelessWidget {
                                               : IconsManager
                                                   .osmhasanainRightToLeftImage,
                                           height: 400.h,
-                                          width: 300.w,
+                                          width: Constants.isMobileScreen
+                                              ? 500.w
+                                              : 300.w,
                                         ),
                                       ),
                                     );
@@ -96,7 +99,9 @@ class MenuHomeWidget extends StatelessWidget {
                                               : IconsManager
                                                   .osmhasanainRightToLeftImageFill,
                                           height: 400.h,
-                                          width: 300.w,
+                                          width: Constants.isMobileScreen
+                                              ? 500.w
+                                              : 300.w,
                                         ),
                                       ),
                                     );
@@ -120,7 +125,7 @@ class MenuHomeWidget extends StatelessWidget {
                               controller.menuIndex.value == 4, 4),
                       ]),
                 ),
-                ContactsChoicesWidget()
+                if (!Constants.isMobileScreen) ContactsChoicesWidget()
               ],
             ),
           )),
@@ -145,8 +150,8 @@ class MenuHomeWidget extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 icon,
-                height: 25.r,
-                width: 25.r,
+                height: Constants.isMobileScreen ? 50.r : 25.r,
+                width: Constants.isMobileScreen ? 50.r : 25.r,
                 fit: BoxFit.fill,
                 colorFilter: ColorFilter.mode(
                     isSelected ? AppColors.blackColor : AppColors.whiteColor,
@@ -160,7 +165,7 @@ class MenuHomeWidget extends StatelessWidget {
                 style: TextStyle(
                   color:
                       isSelected ? AppColors.blackColor : AppColors.whiteColor,
-                  fontSize: 20.sp,
+                  fontSize: Constants.isMobileScreen ? 40.sp : 20.sp,
                 ),
               ),
             ],

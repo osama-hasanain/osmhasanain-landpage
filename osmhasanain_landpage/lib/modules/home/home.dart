@@ -34,6 +34,20 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: !Constants.isMobileScreen ? null : AppBar(),
+      drawer: !Constants.isMobileScreen
+          ? null
+          : Drawer(
+              child: MenuHomeWidget(onListItemTap: (index) {
+                if (!controller.animateRun) {
+                  controller.onMenuItemTap(index);
+                  controller.animateScrollToIndex(index);
+                  if (Constants.isMobileScreen) {
+                    Navigator.pop(context);
+                  }
+                }
+              }),
+            ),
       body: LayoutBuilder(builder: (context, constraints) {
         print(constraints.maxWidth);
         return Center(
@@ -52,6 +66,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                           if (!controller.animateRun) {
                             controller.onMenuItemTap(index);
                             controller.animateScrollToIndex(index);
+                            if (Constants.isMobileScreen) {
+                              Navigator.pop(context);
+                            }
                           }
                         }),
                       );
@@ -130,7 +147,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 ),
                                 SkillsWidget(),
                                 SizedBox(
-                                  height: 80.h,
+                                  height:
+                                      Constants.isMobileScreen ? 30.h : 80.h,
                                 ),
                                 PositionsWidget(),
                                 if (!Constants.isMobileScreen)
