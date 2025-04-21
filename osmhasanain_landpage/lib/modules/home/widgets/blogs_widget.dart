@@ -60,6 +60,9 @@ class _BlogsWidgetState extends State<BlogsWidget> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (_) {
+      if (controller.blogsList.isEmpty) {
+        return const SizedBox();
+      }
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

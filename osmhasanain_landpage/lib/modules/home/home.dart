@@ -156,8 +156,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                     height: 50.h,
                                   ),
                                 WorkGalleryWidget(),
-                                if (controller.blogsList.isNotEmpty)
-                                  BlogsWidget(),
+                                const BlogsWidget(),
                                 SizedBox(
                                   height:
                                       Constants.isMobileScreen ? 50.h : 100.h,
