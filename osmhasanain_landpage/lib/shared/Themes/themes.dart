@@ -11,27 +11,27 @@ class CustomThemes {
     brightness: Brightness.dark,
     textTheme: TextTheme(
       labelLarge: TextStyle(
-        fontSize: 35.sp,
+        fontSize: 30.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       labelMedium: TextStyle(
-        fontSize: 25.sp,
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       labelSmall: TextStyle(
-        fontSize: 20.sp,
+        fontSize: 16.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       bodyMedium: TextStyle(
-        fontSize: 20.sp,
+        fontSize: 16.sp,
         fontWeight: FontWeight.normal,
         color: AppColors.whiteColor,
       ),
       bodySmall: TextStyle(
-        fontSize: 16.sp,
+        fontSize: 14.sp,
         fontWeight: FontWeight.normal,
         color: AppColors.whiteColor,
       ),
@@ -45,27 +45,27 @@ class CustomThemes {
     brightness: Brightness.dark,
     textTheme: TextTheme(
       labelLarge: TextStyle(
-        fontSize: 80.sp,
+        fontSize: 70.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       labelMedium: TextStyle(
-        fontSize: 60.sp,
+        fontSize: 50.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       labelSmall: TextStyle(
-        fontSize: 60.sp,
+        fontSize: 50.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.whiteColor,
       ),
       bodyMedium: TextStyle(
-        fontSize: 60.sp,
+        fontSize: 50.sp,
         fontWeight: FontWeight.normal,
         color: AppColors.whiteColor,
       ),
       bodySmall: TextStyle(
-        fontSize: 45.sp,
+        fontSize: 35.sp,
         fontWeight: FontWeight.normal,
         color: AppColors.whiteColor,
       ),

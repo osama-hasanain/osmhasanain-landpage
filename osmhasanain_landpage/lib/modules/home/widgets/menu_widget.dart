@@ -67,7 +67,7 @@ class MenuHomeWidget extends StatelessWidget {
                                                   .osmhasanainRightToLeftImage,
                                           height: 400.h,
                                           width: Constants.isMobileScreen
-                                              ? 500.w
+                                              ? 700.w
                                               : 300.w,
                                         ),
                                       ),
@@ -100,7 +100,7 @@ class MenuHomeWidget extends StatelessWidget {
                                                   .osmhasanainRightToLeftImageFill,
                                           height: 400.h,
                                           width: Constants.isMobileScreen
-                                              ? 500.w
+                                              ? 700.w
                                               : 300.w,
                                         ),
                                       ),
@@ -150,8 +150,8 @@ class MenuHomeWidget extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 icon,
-                height: Constants.isMobileScreen ? 50.r : 25.r,
-                width: Constants.isMobileScreen ? 50.r : 25.r,
+                height: Constants.isMobileScreen ? 40.r : 20.r,
+                width: Constants.isMobileScreen ? 40.r : 20.r,
                 fit: BoxFit.fill,
                 colorFilter: ColorFilter.mode(
                     isSelected ? AppColors.blackColor : AppColors.whiteColor,
@@ -165,7 +165,7 @@ class MenuHomeWidget extends StatelessWidget {
                 style: TextStyle(
                   color:
                       isSelected ? AppColors.blackColor : AppColors.whiteColor,
-                  fontSize: Constants.isMobileScreen ? 40.sp : 20.sp,
+                  fontSize: Constants.isMobileScreen ? 40.sp : 16.sp,
                 ),
               ),
             ],

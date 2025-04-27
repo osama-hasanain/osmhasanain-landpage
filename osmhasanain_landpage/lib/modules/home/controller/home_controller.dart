@@ -10,6 +10,10 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     scrollController.addListener(_onScroll);
+    blogsScrollController.addListener(() {
+      checkBlogsIfNeedsScrolling();
+      checkSkillsIfNeedsScrolling();
+    });
     super.onInit();
   }
 
@@ -106,6 +110,16 @@ class HomeController extends GetxController {
     update();
   }
 
+  bool skillsNeedScroll = false;
+  final ScrollController skillsScrollController = ScrollController();
+
+  checkSkillsIfNeedsScrolling() {
+    if (!skillsScrollController.hasClients || skillsNeedScroll) return;
+    final maxScroll = skillsScrollController.position.maxScrollExtent;
+    skillsNeedScroll = maxScroll > 0;
+    update();
+  }
+
   late int positionsHoverId = 0;
   late bool isPositionsItemHover = false;
   changePositionsItemHover(bool value) {
@@ -155,6 +169,8 @@ class HomeController extends GetxController {
   }
 
   List<BlogModel> blogsList = [];
+  final ScrollController blogsScrollController = ScrollController();
+  bool blogsNeedScroll = false;
   getBlogsList() {
     blogsList.clear();
     FirebaseFirestore.instance
@@ -168,5 +184,12 @@ class HomeController extends GetxController {
         update();
       }
     });
+  }
+
+  checkBlogsIfNeedsScrolling() {
+    if (!blogsScrollController.hasClients || blogsNeedScroll) return;
+    final maxScroll = blogsScrollController.position.maxScrollExtent;
+    blogsNeedScroll = maxScroll > 0;
+    update();
   }
 }

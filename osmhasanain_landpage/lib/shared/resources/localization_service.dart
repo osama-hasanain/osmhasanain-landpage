@@ -31,7 +31,7 @@ class LocalizationService extends Translations {
               'Whether it’s a work, a collaboration, or just tech talk you can contact me within contacts links in side menu.',
           'contact_me_desc_mobile':
               'Whether it’s a work, a collaboration, or just tech talk you can contact me..',
-          'change_language': 'change language to Arabic',
+          'change_language': 'View in Arabic',
           'grade_you_visit': 'Glad you visited 😄',
           'blogs': 'Blogs',
         },
@@ -50,7 +50,7 @@ class LocalizationService extends Translations {
               'سواء كان عملاً، تعاونًا، أو حتى حديثًا تقنيًا — يسعدني التواصل عبر جهات الاتصال في قائمة التنقل الجانبية.',
           'contact_me_desc_mobile':
               'سواء كان عملاً، تعاونًا، أو حتى حديثًا تقنيًا — يسعدني التواصل.',
-          'change_language': 'تغيير اللغة إلى الإنجليزية',
+          'change_language': 'عرض بالإنجليزية',
           'grade_you_visit': 'سعيد بزيارتك 😄',
           'blogs': 'المقالات',
         },

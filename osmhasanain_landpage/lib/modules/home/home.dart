@@ -32,6 +32,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: !Constants.isMobileScreen ? null : AppBar(),
@@ -49,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               }),
             ),
       body: LayoutBuilder(builder: (context, constraints) {
-        print(constraints.maxWidth);
         return Center(
           child: Stack(
             // mainAxisAlignment: MainAxisAlignment.center,
@@ -96,33 +101,36 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Tooltip(
-                                      message: 'change_language'.tr,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          LocalizationService.changeLocale(
-                                              Get.locale?.languageCode == 'en'
-                                                  ? 'ar'
-                                                  : 'en',
-                                              Get.locale?.languageCode == 'en'
-                                                  ? 'EG'
-                                                  : 'US');
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              color: AppColors.whiteColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(10.r)),
-                                          padding: EdgeInsets.all(5.w),
-                                          child: SvgPicture.asset(
-                                            IconsManager.iconsLanguage,
-                                            height: 30.h,
-                                            colorFilter: const ColorFilter.mode(
-                                                AppColors.blackColor,
-                                                BlendMode.srcIn),
-                                          ),
+                                    IconButton(
+                                      onPressed: () {
+                                        LocalizationService.changeLocale(
+                                            Get.locale?.languageCode == 'en'
+                                                ? 'ar'
+                                                : 'en',
+                                            Get.locale?.languageCode == 'en'
+                                                ? 'EG'
+                                                : 'US');
+                                      },
+                                      icon: Row(children: [
+                                        Text(
+                                          'change_language'.tr,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall!
+                                              .copyWith(
+                                                  color: AppColors.whiteColor),
                                         ),
-                                      ),
+                                        SizedBox(
+                                          width: 10.w,
+                                        ),
+                                        SvgPicture.asset(
+                                          IconsManager.iconsLanguage,
+                                          height: 30.h,
+                                          colorFilter: const ColorFilter.mode(
+                                              AppColors.whiteColor,
+                                              BlendMode.srcIn),
+                                        )
+                                      ]),
                                     )
                                   ],
                                 ),
